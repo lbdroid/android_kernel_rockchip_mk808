@@ -41,10 +41,10 @@ enum {
 
 /* default HDMI output video mode */
 #if defined(CONFIG_HDMI_RK30_RES_1080P)
-// Omegamoon: Default resolution of 1920x1080 (1080p)
+// Default resolution of 1920x1080 (1080p)
 #define HDMI_VIDEO_DEFAULT_MODE		HDMI_1920x1080p_60Hz
 #else
-// Omegamoon: Default resolution of 1280x720 (720p)
+// Default resolution of 1280x720 (720p)
 #define HDMI_VIDEO_DEFAULT_MODE		HDMI_1280x720p_60Hz
 #endif
 

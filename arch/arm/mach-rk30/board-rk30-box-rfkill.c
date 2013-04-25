@@ -26,17 +26,7 @@
 #include <linux/timer.h>
 #include <mach/board.h>
 
-#define OMEGAMOON_CHANGED	1
-
-#ifdef OMEGAMOON_CHANGED
 #define DBG(x...)   printk(KERN_INFO "[BT_RFKILL]: "x)
-#else
-#if 0
-#define DBG(x...)   printk(KERN_INFO "[BT_RFKILL]: "x)
-#else
-#define DBG(x...)
-#endif
-#endif
 
 #define LOG(x...)   printk(KERN_INFO "[BT_RFKILL]: "x)
 

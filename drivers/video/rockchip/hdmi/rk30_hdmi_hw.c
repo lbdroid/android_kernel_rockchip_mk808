@@ -4,7 +4,6 @@
 #include "rk30_hdmi.h"
 #include "rk30_hdmi_hw.h"
 
-#define OMEGAMOON_CHANGED	1
 #define DEBUG 				1
 
 static char edid_result = 0;
@@ -61,14 +60,12 @@ static void rk30_hdmi_set_pwr_mode(int mode)
 
 int rk30_hdmi_detect_hotplug(void)
 {
-#ifdef OMEGAMOON_CHANGED
 	/*
 	   If autoconfig is disabled, the Hotplug feature is also disabled.
 	   The driver then acts as if a HDMI display is always connected.
 	*/
 	if(hdmi->autoconfig == HDMI_DISABLE)
 		return HDMI_HPD_ACTIVED;  
-#endif
 
 	int value =	HDMIRdReg(HPD_MENS_STA);
 	

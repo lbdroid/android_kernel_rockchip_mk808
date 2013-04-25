@@ -18,7 +18,6 @@ obj-$(CONFIG_LOCAL_TIMERS) += localtimer.o
 obj-$(CONFIG_PM) += pm.o
 obj-$(CONFIG_CPU_IDLE) += cpuidle.o
 obj-$(CONFIG_CPU_FREQ) += cpufreq.o
-# Omegamoon >> Enable debugging for cpufreq driver
 CFLAGS_cpufreq.o += -DDEBUG
 obj-$(CONFIG_DVFS) += dvfs.o
 CFLAGS_dvfs.o += -DDEBUG

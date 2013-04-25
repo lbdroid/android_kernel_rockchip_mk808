@@ -262,11 +262,6 @@ int wm831x_post_init(struct wm831x *Wm831x)
 	udelay(100);
 
 	ldo = regulator_get(NULL, "ldo1");	// vcc18_cif
-/*
-	// Omegamoon >> Experiment with lower voltage here
- 	regulator_set_voltage(ldo, 1500000, 1500000);
- 	regulator_set_suspend_voltage(ldo, 1500000);
-*/
 	regulator_set_voltage(ldo, 1800000, 1800000);
 	regulator_set_suspend_voltage(ldo, 1800000);
 	regulator_enable(ldo);

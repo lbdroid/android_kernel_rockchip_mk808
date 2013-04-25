@@ -32,7 +32,7 @@
 #include <plat/ipp.h>
 #include "hdmi/rk_hdmi.h"
 
-#define OMEGAMOON_CHANGED		1
+#define HDMI_HAX		1
 #ifdef	CONFIG_FB_MIRRORING
 int (*video_data_to_mirroring)(struct fb_info *info,u32 yuv_phy[2]) = NULL;
 EXPORT_SYMBOL(video_data_to_mirroring);
@@ -646,13 +646,11 @@ int rk_fb_switch_screen(rk_screen *screen ,int enable ,int lcdc_id)
 	struct rk_fb_inf *inf =  platform_get_drvdata(g_fb_pdev);
 	struct fb_info *info = NULL;
 	struct rk_lcdc_device_driver * dev_drv = NULL;
-#ifndef OMEGAMOON_CHANGED
 	struct fb_info *pmy_info = NULL;
 	struct fb_var_screeninfo *pmy_var = NULL;      //var for primary screen
 	struct fb_var_screeninfo *hdmi_var    = NULL;
 	struct fb_fix_screeninfo *pmy_fix = NULL;
 	struct fb_fix_screeninfo *hdmi_fix    = NULL;
-#endif
 	struct fb_var_screeninfo *var = NULL;
 	struct fb_fix_screeninfo *fix = NULL;
 	char name[6];
@@ -699,7 +697,7 @@ int rk_fb_switch_screen(rk_screen *screen ,int enable ,int lcdc_id)
 		return 0;
 	}
 
-#ifdef OMEGAMOON_CHANGED
+#ifdef HDMI_HAX
 	xpos = (dev_drv->screen->x_res - dev_drv->screen->x_res*dev_drv->x_scale/100)>>1;
 	ypos = (dev_drv->screen->y_res - dev_drv->screen->y_res*dev_drv->y_scale/100)>>1;
 	xsize = dev_drv->screen->x_res * dev_drv->x_scale/100;
@@ -751,7 +749,7 @@ int rk_fb_switch_screen(rk_screen *screen ,int enable ,int lcdc_id)
 			printk(KERN_WARNING "%s>>only one lcdc,dual display no supported!",__func__);
 		}
 	#endif 
-#endif // <<< OMEGAMOON_CHANGED
+#endif // HDMI_HAX
 	return 0;
 
 }
