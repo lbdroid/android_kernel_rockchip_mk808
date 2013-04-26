@@ -437,7 +437,7 @@ static void mt_emit_event(struct mt_device *td, struct input_dev *input)
 				xpos = invertX ? 32768 - s->x : s->x;
 				ypos = invertY ? 32768 - s->y : s->y;
 			}
-			printk("HID-MULTITOUCH: xpos: %ld, ypos: %ld, s->p: %ld, s->w: %ld, x->h: %ld\n", xpos, ypos, s->p, s->w, s->h);
+			//printk("HID-MULTITOUCH: xpos: %ld, ypos: %ld, s->p: %ld, s->w: %ld, x->h: %ld\n", xpos, ypos, s->p, s->w, s->h);
 
 			input_event(input, EV_ABS, ABS_MT_POSITION_X, xpos);
 			input_event(input, EV_ABS, ABS_MT_POSITION_Y, ypos);
